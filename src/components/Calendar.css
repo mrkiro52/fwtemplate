@@ -1,0 +1,203 @@
+@import '../styles/variables.css';
+
+.calendar {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-color);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.calendar-header h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.calendar-nav-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.calendar-nav-btn:hover {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: var(--spacing-md);
+}
+
+.calendar-weekdays div {
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.calendar-day {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  background: var(--background);
+  position: relative;
+  transition: all var(--transition-base);
+  font-weight: 600;
+}
+
+.calendar-day.empty-day {
+  background: transparent;
+  border: none;
+}
+
+.calendar-day.has-status {
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+}
+
+.calendar-day.trained {
+  background: linear-gradient(135deg, rgba(78, 204, 163, 0.1) 0%, rgba(78, 204, 163, 0.05) 100%);
+  border-color: #4ecca3;
+  color: #4ecca3;
+}
+
+.calendar-day.rest {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+  border-color: #ff6b35;
+  color: #ff6b35;
+}
+
+.calendar-day.upcoming {
+  background: linear-gradient(135deg, rgba(200, 200, 200, 0.1) 0%, rgba(200, 200, 200, 0.05) 100%);
+  border-color: var(--border-color);
+  color: var(--text-light);
+}
+
+.calendar-day:hover:not(.empty-day) {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.day-number {
+  font-size: var(--font-size-sm);
+  color: inherit;
+  font-weight: 700;
+}
+
+.day-icon {
+  font-size: 10px;
+  margin-top: 2px;
+  font-weight: 800;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.legend-item.trained {
+  color: #4ecca3;
+}
+
+.legend-item.rest {
+  color: #ff6b35;
+}
+
+.legend-item.upcoming {
+  color: var(--text-light);
+}
+
+.legend-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.legend-item.trained .legend-indicator {
+  background: rgba(78, 204, 163, 0.2);
+  border: 1px solid #4ecca3;
+  color: #4ecca3;
+}
+
+.legend-item.rest .legend-indicator {
+  background: rgba(255, 107, 53, 0.2);
+  border: 1px solid #ff6b35;
+  color: #ff6b35;
+}
+
+.legend-item.upcoming .legend-indicator {
+  background: rgba(200, 200, 200, 0.2);
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .calendar {
+    padding: var(--spacing-md);
+  }
+
+  .calendar-weekdays div {
+    padding: 4px;
+  }
+
+  .calendar-legend {
+    gap: var(--spacing-md);
+  }
+
+  .legend-item {
+    font-size: 11px;
+  }
+}

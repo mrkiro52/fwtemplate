@@ -1,0 +1,450 @@
+@import '../styles/variables.css';
+
+.dashboard-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+}
+
+.dashboard-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.dashboard-header {
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  margin: 0 0 var(--spacing-md) 0;
+  color: #ff6b35;
+}
+
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  margin: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-card {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: backwards;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dashboard-card:nth-child(1) { animation-delay: 0.1s; }
+.dashboard-card:nth-child(2) { animation-delay: 0.2s; }
+.dashboard-card:nth-child(3) { animation-delay: 0.3s; }
+.dashboard-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dashboard-card h2 {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Program Card */
+.program-card-section {
+  grid-column: 1 / 2;
+}
+
+.current-program {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.program-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: var(--spacing-md);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-color);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff6b35;
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+}
+
+.program-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-icon {
+  font-size: 20px;
+  min-width: 24px;
+}
+
+.detail-item span:last-child {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Calendar Section */
+.calendar-section {
+  grid-column: 2 / 3;
+}
+
+/* Nutrition Section */
+.nutrition-section {
+  grid-column: 1 / 2;
+}
+
+.nutrition-summary {
+  margin-bottom: var(--spacing-lg);
+}
+
+.nutrition-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.macros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.macro-item {
+  background: var(--surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.macro-item:nth-child(1) {
+  border-top-color: #4ecca3;
+  border-top-width: 3px;
+}
+
+.macro-item:nth-child(2) {
+  border-top-color: #ffa702;
+  border-top-width: 3px;
+}
+
+.macro-item:nth-child(3) {
+  border-top-color: #ff6b35;
+  border-top-width: 3px;
+}
+
+.macro-item:nth-child(4) {
+  border-top-color: #1abc9c;
+  border-top-width: 3px;
+}
+
+.macro-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.macro-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.macro-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.macro-unit {
+  font-size: var(--font-size-xs);
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.nutrition-chart {
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.chart-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pie-chart {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.pie-chart svg {
+  width: 100%;
+  height: auto;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: block;
+}
+
+/* Stats Section */
+.stats-section {
+  grid-column: 2 / 3;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.stat-item:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-color);
+}
+
+.stat-icon {
+  font-size: 28px;
+  min-width: 40px;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .program-card-section,
+  .calendar-section,
+  .nutrition-section,
+  .stats-section {
+    grid-column: 1 !important;
+  }
+
+  .macros-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: var(--spacing-md);
+    overflow-x: hidden;
+  }
+
+  .dashboard-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .dashboard-card {
+    padding: var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .macros-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .macro-item {
+    padding: var(--spacing-sm);
+  }
+
+  .macro-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .macro-value {
+    font-size: var(--font-size-lg);
+  }
+
+  .program-card-section,
+  .calendar-section,
+  .nutrition-section,
+  .stats-section {
+    grid-column: 1 !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding: var(--spacing-sm);
+  }
+
+  .dashboard-card {
+    padding: var(--spacing-sm);
+  }
+
+  .dashboard-card h2 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .macros-grid {
+    gap: var(--spacing-xs);
+  }
+
+  .stats-grid {
+    gap: var(--spacing-sm);
+  }
+
+  .stat-item {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+
+  .stat-icon {
+    font-size: 24px;
+    min-width: 32px;
+  }
+
+  .stat-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .stat-value {
+    font-size: var(--font-size-base);
+  }
+}
