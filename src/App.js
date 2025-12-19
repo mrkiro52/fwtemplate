@@ -31,7 +31,7 @@ function App() {
         <div className="loading-screen">
           <div className="loading-spinner">
             <div className="spinner"></div>
-            <p>Загрузка...</p>
+            <p>Загрузка...</p> 
           </div>
         </div>
       );
